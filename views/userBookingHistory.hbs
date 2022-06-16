@@ -1,0 +1,43 @@
+<table class="table" >
+    <caption>List of bookings</caption>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Hotel Name</th>
+            <th scope="col">CheckIn</th>
+            <th scope="col">CheckOut</th>
+            <th scope="col">Category</th>
+            <th scope="col">Guests</th>
+            <th scope="col">Rooms</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Payment</th>
+            <th scope="col">status </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each userBooking.bookingDetails}}
+       
+
+        <tr>
+            <th scope="row">*</th>
+            <td>{{this.bookingDate}} </td>
+            <td>{{this.hotelName}} </td>
+            <td>{{this.checkIn}} </td>
+            <td>{{this.checkOut}} </td>
+            <td>{{this.category}} </td>
+            <td>{{this.guests}} </td>
+            <td>{{this.roomCount}} </td>
+            <td>{{this.billAmt}} </td>
+            <td>{{this.bookingStatus}} </td>
+            <td>{{this.status}} </td>
+            <td><a type="submit" onclick="cancelbooking('{{this.bookingId}}')" class="btn btn-danger">Cancel</a>   </td>
+        </tr>
+
+        {{/each}}
+        
+    </tbody>
+</table>
+

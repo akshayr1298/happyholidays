@@ -1,0 +1,142 @@
+
+
+<div class="table-responsive d-flex justify-content-start flex-column col-lg-10 ms-auto ">
+
+  <table cellspacing="5" cellpadding="5" border="0" class="me-auto">
+    <tbody>
+      <tr>
+        <td class="text-dark">Minimum date:</td>
+        <td><input type="text" id="min" name="min"></td>
+      </tr>
+      <tr>
+        <td class="text-dark">Maximum date:</td>
+        <td><input type="text" id="max" name="max"></td>
+      </tr>
+    </tbody>
+  </table>
+  <table id="myTables" class="display nowrap text-dark" style="width:80%">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date&Time</th>
+        <th>Customers</th>
+        <th>Hotel Name</th>
+        <th>Category</th>
+        <th>CheckIn-date</th>
+        <th>CheckOut-date</th>
+        <th>Guests</th>
+        <th>Rooms</th>
+        <th>Bill Amount </th>
+        <th>Booking Status </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      {{#if bookingDetails}}
+      <tr>
+        <th scope="row" id="myList"></th>
+
+        <td> {{this.bookingDetails.0.bookingDate}} </td>
+        <td>{{this.name}} </td>
+        <td> {{this.bookingDetails.0.hotelName}} </td>
+        <td> {{this.bookingDetails.0.category}} </td>
+        <td> {{this.bookingDetails.0.checkIn}} </td>
+        <td> {{this.bookingDetails.0.checkOut}} </td>
+        <td> {{this.bookingDetails.0.guests}} </td>
+        <td> {{this.bookingDetails.0.roomCount}} </td>
+        <td> {{this.bookingDetails.0.billAmt}} </td>
+        <td> {{this.bookingDetails.0.bookingStatus}} </td>
+      </tr>
+      {{/if}}
+      {{/each}}
+
+
+    </tbody>
+    <tfoot>
+      {{!-- <tr>
+        <th>Date&Time</th>
+        <th>Customers</th>
+        <th>Hotel Name</th>
+        <th>Category</th>
+        <th>CheckIn-date</th>
+        <th>CheckOut-date</th>
+        <th>Guests</th>
+        <th>Rooms</th>
+        <th>Bill Amount </th>
+        <th>Booking Status </th>
+      </tr> --}}
+    </tfoot>
+  </table>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+
+
+
+  var minDate, maxDate;
+
+  $(function () {
+    $("#min").datepicker();
+  });
+
+  $(function () {
+    $("#max").datepicker();
+  });
+
+  $('#max').blur(function () {
+    $.fn.dataTable.ext.search.push(
+
+
+      function (settings, data, dataIndex) {
+
+        var min = new Date($('#min').val())
+        var max = new Date($('#max').val())
+        var date = new Date(data[5]);
+
+        if (
+          (min === null && max === null) ||
+          (min === null && date <= max) ||
+          (min <= date && max === null) ||
+          (min <= date && date <= max)
+        ) {
+
+          return true;
+        }
+        return false;
+      }
+    );
+  })
+
+
+
+
+
+  $(document).ready(function () {
+    // Create date inputs
+    minDate = new Date($('#min'), {
+      format: 'MMMM Do YYYY'
+    });
+    maxDate = new Date($('#max'), {
+      format: 'MMMM Do YYYY'
+    });
+
+    // DataTables initialisation
+    var table = $('#myTables').DataTable({
+      order: [[3, 'asc']]
+    });
+
+    // Refilter the table
+    $('#min, #max').on('change', function () {
+      table.draw();
+    });
+  });
+
+</script>

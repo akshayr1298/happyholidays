@@ -1,0 +1,146 @@
+<div class="container rounded bg-white mt-5 mb-5 shadow">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                    width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                    class="font-weight-bold">Edogaru</span><span class="text-black-50">{{userBooking.email}}
+                </span><span>
+                </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <form action="">
+
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                                id="name" placeholder="Name" name="name" value="{{userBooking.name}} "></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" id="number"
+                                class="form-control" placeholder="enter phone number" name="number" value="{{userBooking.number}}">
+                        </div>
+
+                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
+                                class="form-control" id="emailId" placeholder="enter email id" name="email"
+                                value="{{userBooking.email}}"></div>
+
+                    </div>
+                    {{!-- <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                class="form-control" placeholder="country" value=""></div>
+                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
+                                class="form-control" value="" placeholder="state"></div>
+                    </div> --}}
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="updateuser('{{userBooking._id}}')">Save
+                            </button></div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center "><a href="/userbookinghistory"
+                        class="btn btn-secondary">View History</a>
+                    <a id="editProfile" class="btn btn-primary btn-sm me-2"> Edit profile</a>
+                </div>
+                <br>
+
+
+            </div>
+        </div>
+
+        <div class="container">
+
+
+
+
+
+
+            <!--Section heading-->
+            <h2 class="h1-responsive font-weight-bold text-center my-4 me-1">Contact us</h2>
+            <!--Section description-->
+
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control"
+                                        placeholder="Your name">
+                                    <label for="name" class=""></label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control"
+                                        placeholder="Your email">
+                                    <label for="email" class=""></label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control"
+                                        placeholder="Subject">
+                                    <label for="subject" class=""></label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" placeholder="Your message"
+                                        rows="5" class="form-control md-textarea"></textarea>
+                                    <label for="message"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                    </form>
+
+                    <div class="text-center text-md-left">
+                        <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            </section>
+            <!--Section: Contact v.2-->
+        </div>
+
+
+    </div>
+</div>
+</div>
+</div>

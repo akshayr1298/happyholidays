@@ -1,0 +1,156 @@
+{{!-- search bar --}}
+
+<div class="s002">
+  <form action="/search" method="post">
+    <fieldset>
+
+    </fieldset>
+    <div class="inner-form">
+      <div class="input-field first-wrap">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z">
+            </path>
+          </svg>
+        </div>
+        <input id="search" type="text" name="location" value="{{search.location}}" placeholder="Location" />
+      </div>
+      <div class="input-field second-wrap">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z">
+            </path>
+          </svg>
+        </div>
+        <input class="datepicker1" id="checkInDate" name="checkindate" value="{{search.checkindate}}" type="text"
+          placeholder="CECKINDATE" />
+      </div>
+      <div class="input-field third-wrap">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z">
+            </path>
+          </svg>
+        </div>
+        <input class="datepicker2" id="checkOutDate" name="checkoutdate" value="{{search.checkoutdate}}" type="text"
+          placeholder="CECKOUTDATE" />
+      </div>
+      <div class="input-field fouth-wrap">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+            </path>
+          </svg>
+        </div>
+        <select data-trigger="" name="adults">
+          <option placeholder="Adults" value="{{search.adults}}"></option>
+          <option>1 </option>
+          <option>2 </option>
+          <option>3 </option>
+          <option>4 </option>
+        </select>
+      </div>
+      <div class="input-field fouth-wrap">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+            </path>
+          </svg>
+        </div>
+        <select data-trigger="" name="room">
+          <option placeholder="Room" value="{{search.room}}"></option>
+          <option>1 </option>
+          <option>2 </option>
+          <option>3 </option>
+          <option>4 </option>
+        </select>
+      </div>
+      <div class="input-field fifth-wrap">
+        <button class="btn-search" type="submit">SEARCH</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{!-- room list --}}
+
+<section class="light">
+ 
+
+
+  <div class="container py-2">
+    <div class="h1 text-center text-dark" id="pageHeaderTitle">Hotels list</div>
+
+    {{#each rooms}}
+    <article class="postcard  blue">
+      <a class="postcard__img_link" href="#">
+        <img class="postcard__img" src="/room-img/{{this._id}}(1).jpg" alt="Image Title" />
+      </a>
+      <div class="postcard__text t-dark">
+        <h1 class="postcard__title red"><a href="#">{{this.vname}} </a></h1>
+        <div class="postcard__subtitle small">
+          <time datetime="2020-05-25 12:00:00">
+
+            <i class="fa-solid fa-location-dot me-1"></i></i>
+            {{this.rooms.country}},{{this.rooms.state}},{{this.rooms.district}}
+
+          </time>
+        </div>
+        <div class="postcard__bar"></div>
+        <p class="text-dark">{{this.rooms.category}} Rooms </p>
+        <p class="text-success fs-5" style="padding-right:43rem ;"> Hurry only {{this.rooms.qty}} left</p>
+        <div class="postcard__preview-txt">
+          <div class="d-flex justify-content-around ">
+            {{#if this.rooms.ameneties.wifi}}
+            <p class="text-dark">
+              <i class="fa-solid fa-wifi me-1"></i>Free wifi
+            </p>
+            {{/if}}
+            {{#if this.rooms.ameneties.powerbackup}}
+            <p class="text-dark"> <i class="fa-solid fa-car-battery me-1"></i>Power backup </p>
+            {{/if}}
+            {{#if this.rooms.ameneties.ac}}
+            <p class="text-dark"> <i class="fa-solid fa-fan me-1"></i>Ac</p>
+            {{/if}}
+            {{#if this.rooms.ameneties.parking}}
+            <p class="text-dark"><i class="fa-solid fa-square-parking me-1"></i>Parking </p>
+            {{/if}}
+
+          </div>
+
+
+        </div>
+        <div class="d-dlex">
+          <span class="fw-bold text-secondary me-5" style="font-size:15px;"><i class="fa-solid fa-indian-rupee-sign"></i>
+            <strike>{{this.rooms.price}}</strike>
+          </span> <span class="fs-bold text-danger me-5" style="font-size:20px;"> <i
+              class="fa-solid fa-indian-rupee-sign"></i> {{this.rooms.netprice}} </span> <span class="text-success"> {{this.rooms.offer}} %off</span>
+
+        </div>
+
+
+        <ul class="postcard__tagbox">
+          <li class="tag__item play green me-5"><i class="fa-solid fa-star-half-stroke me-1"></i>4.5</li>
+          <li class="tag__item play blue me-5"><i class="fa-solid fa-eye me-1"></i> <a
+              href="/roomdetails?id={{this._id}}">
+              </i>View Details</li> </a>
+          <li class="tag__item play green me-2">
+            <a href="/booking?id={{this._id}}"><i class="fa-solid fa-book-open me-1"></i>Book Now</a>
+          </li>
+        </ul>
+      </div>
+    </article>
+    {{/each}}
+
+
+
+
+
+
+  </div>
+</section>

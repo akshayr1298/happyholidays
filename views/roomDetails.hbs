@@ -1,0 +1,75 @@
+<div class="container mt-5 mb-5 ">
+    
+    
+    <div class="card shadow">
+      
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image"> <img
+                            src="/room-img/{{room._id}}(1).jpg"
+                            id="main_product_image" width="350"> </div>
+                    <div class="thumbnail_images">
+                        <ul id="thumbnail">
+                            <li><img onclick="changeImage(this)"
+                                    src="/room-img/{{room._id}}(1).jpg"
+                                    width="70"></li>
+                            <li><img onclick="changeImage(this)"
+                                    src="/room-img/{{room._id}}(2).jpg"
+                                    width="70"></li>
+                            <li><img onclick="changeImage(this)"
+                                    src="/room-img/{{room._id}}(3).jpg"
+                                    width="70"></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="fw-bold">{{room.vname}}  </h3>
+                        <h5 class="me-5 text-success">only {{room.rooms.0.qty}} left</h5>
+
+                    </div>
+                    <h4 class="mt-3">{{room.rooms.0.category}} Rooms</h4>
+                    <div class="d-flex mt-5 justify-content-around">
+                        {{#if room.rooms.0.ameneties.wifi}}
+                        <p class="text-dark">
+                            <i class="fa-solid fa-wifi me-1"></i>Free wifi
+                        </p>
+                        {{/if}}
+                        {{#if room.rooms.0.ameneties.powerbackup}}
+                        <p class="text-dark"> <i class="fa-solid fa-car-battery me-1"></i>Power backup </p>{{/if}}
+                        {{#if room.rooms.0.ameneties.ac}}
+                        <p class="text-dark"> <i class="fa-solid fa-fan me-1"></i>Ac</p>{{/if}}
+                        {{#if room.rooms.0.ameneties.parking}}
+                        <p class="text-dark"><i class="fa-solid fa-square-parking me-1"></i>Parking </p>{{/if}}
+
+
+                    </div>
+
+
+                    <div class="mt-5">
+                        <h4>Hotel Policies</h4>
+                        <h5>Check-in :<span class="fw-bold">12:00 PM</span></h5> <h5 class="me-2">Check-out :<span class="fw-bold">11:00 AM</span> </h5>
+                        <p> Please present your ID card, Passport or Temporary Residence Card upon Check-in. By Law
+                            visitors must present personal documents for hotel records. These documents will be returned
+                            upon
+                        </p>
+
+
+                        <span class="fw-bold text-danger" style="font-size:22px;"><i
+                                class="fa-solid fa-indian-rupee-sign"></i>
+                            {{room.rooms.0.price}} </span>
+                    </div>
+                    {{!-- <div class="buttons d-flex flex-row mt-5"> <a href="/booking" class="btn btn-primary">Book Now </a>
+                    </div> --}}
+                    <a href="/booking?id={{room._id}}"><button type="button" class="btn btn-primary">Book Now</button></a>
+                   
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

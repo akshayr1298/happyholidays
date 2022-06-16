@@ -1,0 +1,133 @@
+<section class="container">
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <div class="d-flex flex-row align-items-center mt-5">
+
+      <a href="/rooms" style="text-decoration:none;"> <span class="ms-2 me-3 text-danger">
+          < Modify your booking</span></a>
+    </div>
+    <a href="/">Cancel and return to the website</a>
+  </div>
+
+  <div class="row ">
+    <div class="col-xs-12 col-md-7 col-lg-7 col-xl-6 mb-4 mb-md-0 shadow">
+     
+      <div class="border d-flex align-items-center justify-content-center"
+        style="height: 10%; background-color: #0059ff16;border-color: #0059ff3a;"><span class="text-primary">🎉 Yay! you
+          just {{search.off}}
+          saved  on this booking!</span></div>
+      <div class="mt-5 col-auto border container-fluid" style="padding: 0px; !important">
+        <div class="form-control-lg " style="background-color: #f9f9fb;"><span
+            class="detailsHead text-dark font-weight-bold">Enter your
+            details</span></div>
+        <form class="mt-5 ">
+          <div class="row ms-3 me-3">
+            <div class="col ">
+              <label for="name" class="text-dark">Full Name</label>
+              <input type="text" class="form-control" value="{{user.name}} " name="name" placeholder="First name">
+            </div>
+            <div class="col">
+              <label for="email" class="text-dark">Email</label>
+              <input type="email" class="form-control" value="{{user.email}} " name="email" placeholder="">
+            </div>
+          </div>
+          <div class="row mt-4 ms-3">
+            <div class=" col me-4 mb-4">
+              <label for="number" class="text-dark">Mobile Number</label>
+              <input type="text" class="form-control" value="{{user.number}} " name="number" placeholder="Number">
+            </div>
+
+          </div>
+          {{!-- {{#if details}} --}}
+          {{!-- <div class="d-flex justify-content-center mb-3"><button type="button" class="btn btn-success">Send
+              OTP</button></div> --}}
+          {{!-- {{else}} --}}
+          {{!-- <div class="d-flex justify-content-center mb-3"><button type="button" class="btn btn-success">Send
+              OTP</button></div> --}}
+
+          {{!-- {{/if}} --}}
+
+
+        </form>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-5 col-lg-4 col-xl-4 offset-lg-1 offset-xl-2 shadow">
+      <form id="booking">
+        <div class="p-3 border" style="background-color: rgba(238, 238, 238, 0.459);">
+          <div class="d-flex justify-content-between"><span class="fw-bold mt-2"> </span>
+            <div style="width: 5px;height: 5px;"><img src="#" class="border border-dark"></div>
+            <div class="d-flex justify-content-center mb-3"></div>
+          </div>
+          <div class="d-flex justify-content-between mt-2 text-dark">
+            <span class="fs-5 fw-bold">{{room.vname}} </span> <span>{{room.rooms.0.state}}
+              {{room.rooms.0.district}}</span>
+          </div>
+          <div class="d-flex flex-column mt-2">
+            <div class="text-dark bookNowReceiptFonts"><i class="fa-regular fa-calendar-days text-secondary">
+              </i> {{search.checkindate}} {{search.checkoutdate}}
+              {{!-- {{dates.checkInDate}}-{{dates.checkOutDate}} </div> --}}
+            <div class="font-weight-bold bookNowReceiptFonts "><i class="bi bi-bookmark-check"></i>
+              {{search.room}} Room
+              {{search.adults}} Guest</div>
+          </div>
+          <div class="d-flex justify-content-between mt-4">
+            <span class="text-dark bookNowReceiptFonts ">{{room.rooms.0.category}} Rooms<i
+                class='bx bx-door-open text-secondary'></i>
+            </span> <span class="font-weight-bold bookNowReceiptFonts">
+            </span>
+          </div>
+          <div class="d-flex justify-content-between mt-2">
+            <span></span> <span></span>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between mt-2">
+            <span class="text-dark bookNowReceiptFonts">Room price for {{search.days}} night X {{search.adults}} guest
+            </span>
+            <span class="bookNowReceiptFonts font-weight-bold"></span>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <span class="text-dark bookNowReceiptFonts">Discount </span>
+            <span class="text-dark bookNowReceiptFonts font-weight-bold">{{room.rooms.0.offer}}% </span>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between mt-2">
+            <span class="bookNowReceiptFonts"></span> <span class="bookNowReceiptFonts font-weight-bold"></span>
+          </div>
+          <div class="d-flex justify-content-between mt-2">
+            <span></span> <span></span>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between mt-2">
+            <span class="text-dark">Total </span> <span class="text-danger fs-5 fw-bold"><i
+                class="fa-solid fa-indian-rupee-sign me-1"></i>{{search.amt}} </span>
+          </div>
+          {{!-- <div class="col d-flex justify-content-around mt-5 mb-5">
+            <input type="radio"  name="option" value="hotel">
+            <label class="btn btn-secondary border border-warning text-warning" for="option1">Pay at Hotel</label>
+            <input type="radio"name="option" value="online">
+            <label for="option2" class="btn btn-secondary border border-warning text-warning">Pay Online</label>
+          </div> --}}
+           <div class="form-check">
+            <input type="radio"  name="option" value="hotel">
+            <label class="form-check-label text-dark" for="flexRadioDefault1" style="font-size:16px;">
+              Pay at Hotel
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio"name="option" value="online">
+            <label class="form-check-label text-dark" for="flexRadioDefault1" style="font-size:16px;">
+              Online Payment
+            </label>
+          </div>
+          <div>
+            <button type="button" class="btn btn-success"  
+              onclick="confirmoder(document.getElementsByName('option'))">Pay Now</button>
+
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</section>
+

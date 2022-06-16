@@ -1,0 +1,46 @@
+<div class="table-responsive d-flex justify-content-center">
+
+
+  <table class="table table-dark " id="roomdata" style="width:75%;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Email</th>
+        <th scope="col">Accept</th>
+        <th scope="col">Block</th>
+        <th scope="col">Unblock</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr>
+
+        <th scope="row"></th>
+        <td>{{this.name}} </td>
+        <td>{{this.number}} </td>
+        <td> {{this.email}} </td>
+        <td> <a class="btn btn-primary" role="button">Accept</a></td>
+        <td><a class="btn btn-danger" href="/admin/block-user?id={{this._id}}"
+                onclick="return confirm('Are you sure want to block {{this.name}}')">Block</a></td>
+        <td><a class="btn btn-success" href="/admin/unblock-user?id={{this._id}}"
+                onclick="return confirm('Are you sure want to unblock {{this.name}}')">Unblock</a>  </td>
+      </tr>
+      {{/each}}
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+{{!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="/admin/delete-user?id={{this._id}}"
+                onclick="return confirm('Are you sure want to delete {{this.name}} ') ">Delete</a></li>
+            <li><a class="dropdown-item" href="/admin/block-user?id={{this._id}}"
+                onclick="return confirm('Are you sure want to block {{this.name}}')">Block</a></li>
+            <li><a class="dropdown-item" href="/admin/unblock-user?id={{this._id}}"
+                onclick="return confirm('Are you sure want to unblock {{this.name}}')">Unblock</a></li>
+
+          </ul> --}}

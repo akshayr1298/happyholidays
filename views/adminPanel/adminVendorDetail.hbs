@@ -1,0 +1,41 @@
+<div class="table-responsive d-flex justify-content-center">
+
+
+  <table class="table table-dark" id="roomdata" style="width:75%;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Hotel Name </th>
+        <th scope="col">Category</th>
+        <th scope="col">Number of Rooms</th>
+        <th scope="col">AC</th>
+        <th scope="col">wifi</th>
+        <th scope="col">Parking</th>
+         <th scope="col">PowerBackup</th>
+        <th scope="col">Price</th>
+        <th scope="col">Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rooms}}
+      <tr>
+
+        <th scope="row"></th>
+        <td>{{this.vname}} </td>
+        <td>{{this.rooms.category}} </td>
+        <td>{{this.rooms.qty}} </td>
+        <td> {{this.rooms.ameneties.ac}} </td>
+        <td> {{{this.rooms.ameneties.wifi}}} </td>
+        <td> {{this.rooms.ameneties.parking}} </td>
+        <td> {{this.rooms.ameneties.powerbackup}} </td>
+        <td>{{this.rooms.price}} </td>
+        <td>{{this.rooms.country}},{{this.rooms.state}},{{this.rooms.district}} </td>
+
+      </tr>
+      {{/each}}
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="table-responsive d-flex justify-content-center">
+
+
+    <table id="example" class="col-lg-9 table  table-striped  table-dark table-hover" style="width:75%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Action</th>
+                <th>Block</th>
+                <th>Unblock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.vname}} </td>
+                <td>{{this.vemail}} </td>
+                <td>{{this.vnumber}} </td>
+                <td> <a href="" class="btn btn-primary dropdown-toggle" role="button" data-bs-toggle="dropdown">Accept
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="/admin/delete-vendor?id={{this._id}}"
+                                onclick="return confirm('Are you sure want to delete {{this.vname}}')">Delete</a></li>
+
+
+                    </ul>
+                </td>
+                <td> <a href="/admin/block-vendor?id={{this._id}}" id="roomdata"
+                        onclick="return confirm('Are you sure want to Block {{this.vname}} ') "
+                        class="btn btn-danger">Block</a> </td>
+                <td> <a href="/admin/unblock-vendor?id={{this._id}}" id="roomdata"
+                        onclick="return confirm('Are you sure want to unblock {{this.vname}} ') "
+                        class="btn btn-success">Unblock</a> </td>
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+
+<!-- Modal -->

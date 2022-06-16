@@ -1,0 +1,43 @@
+<div class="table-responsive d-flex justify-content-center">
+
+
+  <table class="table table-dark" id="roomdata" style="width:75%;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date&Time</th>
+        <th scope="col">Customers</th>
+        <th scope="col">Category</th>
+        <th scope="col">CheckIn-date</th>
+        <th scope="col">CheckOut-date</th>
+        <th scope="col">Guests</th>
+        <th scope="col">Rooms</th>
+        <th scope="col">Bill Amount </th>
+        <th scope="col">Booking Status </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each bookingStatus}}
+      <tr>
+
+        <th scope="row"></th>
+        <td>{{this.bookingDetails.bookingDate}} </td>
+        <td>{{this.name}}</td>
+        <td> {{this.bookingDetails.category}} </td>
+        <td> {{this.bookingDetails.checkIn}} </td>
+        <td> {{this.bookingDetails.checkOut}} </td>
+         <td> {{this.bookingDetails.guests}} </td>
+          <td> {{this.bookingDetails.roomCount}} </td>
+        <td> {{this.bookingDetails.billAmt}} </td>
+        <td> {{this.bookingDetails.bookingStatus}} </td>
+
+
+      </tr>
+      {{/each}}
+
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
